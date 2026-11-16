@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use aggcarbon, please cite this software."
+title: "aggcarbon: soil aggregate stability and carbon pool indices calculator"
+type: software
+authors:
+  - family-names: Xiao
+    given-names: Yilong
+    email: YilongXiao@users.noreply.github.com
+year: 2026
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/YilongXiao/aggcarbon"
+abstract: "Computes wet-sieving aggregate stability indices, ESM-corrected carbon stocks, CPI/CMI with bootstrap confidence intervals, figures, and a Chinese laboratory report."
+keywords:
+  - soil aggregates
+  - soil organic carbon
+  - carbon management index
+  - equivalent soil mass
+  - reproducibility
