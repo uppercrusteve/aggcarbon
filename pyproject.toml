@@ -9,7 +9,7 @@ description = "Soil aggregate stability and carbon pool indices with ESM correct
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
-authors = [{ name = "Yilong Xiao", email = "YilongXiao@users.noreply.github.com" }]
+authors = [{ name = "Yilong Xiao", email = "uppercrusteve@users.noreply.github.com" }]
 keywords = ["soil", "aggregate stability", "soil organic carbon", "MWD", "GMD", "CMI", "ESM"]
 classifiers = [
   "Programming Language :: Python :: 3",
@@ -26,7 +26,7 @@ dev = ["pytest>=7", "ruff>=0.4"]
 aggcarbon = "aggcarbon.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/YilongXiao/aggcarbon"
+Homepage = "https://github.com/uppercrusteve/aggcarbon"
 
 [tool.setuptools.packages.find]
 where = ["src"]

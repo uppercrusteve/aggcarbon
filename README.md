@@ -2,7 +2,7 @@
 
 把湿筛团聚体数据变成可复核的稳定性与碳库指标（MWD、GMD、R>0.25、ESM 校正储量、POC/MAOC、LI、CPI/CMI），带 bootstrap 区间、图表和中文报告。
 
-[![CI](https://github.com/YilongXiao/aggcarbon/actions/workflows/ci.yml/badge.svg)](https://github.com/YilongXiao/aggcarbon/actions/workflows/ci.yml)
+[![CI](https://github.com/uppercrusteve/aggcarbon/actions/workflows/ci.yml/badge.svg)](https://github.com/uppercrusteve/aggcarbon/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](https://www.python.org/)
 [![Tests](https://img.shields.io/badge/tests-60%20passed-brightgreen.svg)](#测试)
@@ -107,7 +107,7 @@ python -m ruff check .
   title   = {aggcarbon: soil aggregate stability and carbon pool indices calculator},
   year    = {2026},
   version = {0.1.0},
-  url     = {https://github.com/YilongXiao/aggcarbon},
+  url     = {https://github.com/uppercrusteve/aggcarbon},
   license = {MIT}
 }
 ```

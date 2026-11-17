@@ -5,11 +5,11 @@ type: software
 authors:
   - family-names: Xiao
     given-names: Yilong
-    email: YilongXiao@users.noreply.github.com
+    email: uppercrusteve@users.noreply.github.com
 year: 2026
 version: 0.1.0
 license: MIT
-repository-code: "https://github.com/YilongXiao/aggcarbon"
+repository-code: "https://github.com/uppercrusteve/aggcarbon"
 abstract: "Computes wet-sieving aggregate stability indices, ESM-corrected carbon stocks, CPI/CMI with bootstrap confidence intervals, figures, and a Chinese laboratory report."
 keywords:
   - soil aggregates
