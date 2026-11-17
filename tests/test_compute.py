@@ -59,6 +59,27 @@ def test_esm_leaves_ratio_unchanged() -> None:
     assert corrected.poc_maoc_ratio == pytest.approx(plain.poc_maoc_ratio)
 
 
+def test_li_hand_calculation() -> None:
+    sample = make_sample("P01", masses=(100.0, 0.0, 0.0, 0.0), soc=10.0, poc=4.0, maoc=6.0)
+    metrics = compute_sample(sample)
+    assert metrics.soc_stock == pytest.approx(25.0)
+    assert metrics.poc_stock == pytest.approx(10.0)
+    assert metrics.li == pytest.approx(0.4)
+
+
+def test_li_is_unchanged_by_esm() -> None:
+    sample = make_sample("P01", masses=(100.0, 0.0, 0.0, 0.0), soc=10.0, poc=4.0, maoc=6.0)
+    plain = compute_sample(sample)
+    corrected = compute_sample(sample, reference_mass_mg_ha=1500.0)
+    assert corrected.li == pytest.approx(plain.li)
+
+
+def test_li_is_nan_when_poc_missing() -> None:
+    sample = make_sample("P01", masses=(100.0, 0.0, 0.0, 0.0), soc=10.0, poc=None)
+    metrics = compute_sample(sample)
+    assert math.isnan(metrics.li)
+
+
 def test_zero_mass_class_is_ignored_by_gmd() -> None:
     sample = make_sample("P01", masses=(50.0, 0.0, 0.0, 50.0), soc=10.0)
     metrics = compute_sample(sample)
