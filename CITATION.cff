@@ -3,8 +3,7 @@ message: "If you use aggcarbon, please cite this software."
 title: "aggcarbon: soil aggregate stability and carbon pool indices calculator"
 type: software
 authors:
-  - family-names: Xiao
-    given-names: Yilong
+  - name: "uppercrusteve"
     email: uppercrusteve@users.noreply.github.com
 year: 2026
 version: 0.1.0

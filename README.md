@@ -103,7 +103,7 @@ python -m ruff check .
 
 ```bibtex
 @software{aggcarbon2026,
-  author  = {Xiao, Yilong},
+  author  = {uppercrusteve},
   title   = {aggcarbon: soil aggregate stability and carbon pool indices calculator},
   year    = {2026},
   version = {0.1.0},
@@ -124,4 +124,4 @@ Formulas, sources, assumptions, and limitations are in `docs/methods.md`.
 
 ## License
 
-MIT © 2026 Yilong Xiao. See [`LICENSE`](LICENSE).
+MIT © 2026 uppercrusteve. See [`LICENSE`](LICENSE).

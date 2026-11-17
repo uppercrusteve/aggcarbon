@@ -9,7 +9,7 @@ description = "Soil aggregate stability and carbon pool indices with ESM correct
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
-authors = [{ name = "Yilong Xiao", email = "uppercrusteve@users.noreply.github.com" }]
+authors = [{ name = "uppercrusteve", email = "uppercrusteve@users.noreply.github.com" }]
 keywords = ["soil", "aggregate stability", "soil organic carbon", "MWD", "GMD", "CMI", "ESM"]
 classifiers = [
   "Programming Language :: Python :: 3",
