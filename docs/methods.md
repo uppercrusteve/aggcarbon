@@ -62,13 +62,15 @@
 
    POC、MAOC 储量按同样倍率缩放；浓度、MWD、GMD、R>0.25、POC/MAOC 比值不变。`--reference-mass` 应与比较目标层（通常为参照处理）的实测土壤质量一致。
 
-8. 碳库指标（参照处理 r）
+8. 碳库与活性指标（参照处理 r）
 
    CPI = POC_stock,treat / POC_stock,r
 
    CMI = CPI × (SOC_stock,treat / SOC_stock,r) × 100
 
-   参照处理的 CPI 与 CMI 定义为 100。CPI 是无量纲比值；CMI 是以 100 为基准的指数。
+   LI = POC_stock,sample / SOC_stock,sample
+
+   参照处理的 CPI 与 CMI 定义为 100。CPI 是无量纲比值；CMI 是以 100 为基准的指数。LI（lability index，活性指数）为该样品 POC 占 SOC 的比例（0–1），数值越高表示碳库越以易分解组分主导；它是样品内比值，不受 ESM 缩放影响，也不依赖参照处理。
 
 9. 不确定区间
 

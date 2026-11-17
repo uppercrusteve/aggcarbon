@@ -1,11 +1,11 @@
 # aggcarbon
 
-把湿筛团聚体数据变成可复核的稳定性与碳库指标（MWD、GMD、R>0.25、ESM 校正储量、CPI/CMI），带 bootstrap 区间、图表和中文报告。
+把湿筛团聚体数据变成可复核的稳定性与碳库指标（MWD、GMD、R>0.25、ESM 校正储量、POC/MAOC、LI、CPI/CMI），带 bootstrap 区间、图表和中文报告。
 
 [![CI](https://github.com/YilongXiao/aggcarbon/actions/workflows/ci.yml/badge.svg)](https://github.com/YilongXiao/aggcarbon/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](https://www.python.org/)
-[![Tests](https://img.shields.io/badge/tests-57%20passed-brightgreen.svg)](#测试)
+[![Tests](https://img.shields.io/badge/tests-60%20passed-brightgreen.svg)](#测试)
 
 ![处理间 MWD、GMD 与 CMI（真实运行输出，含 95% bootstrap 误差棒）](docs/screenshots/carbon-indices.png)
 
@@ -47,7 +47,7 @@ aggcarbon template -o template.csv
 
 `compute` 会在 `out/` 写出：
 
-- `summary.csv`：处理均值、SD、95% CI、MWD、GMD、R>0.25、SOC/POC/MAOC 储量、CPI、CMI
+- `summary.csv`：处理均值、SD、95% CI、MWD、GMD、R>0.25、SOC/POC/MAOC 储量、LI、POC/MAOC、CPI、CMI
 - `stocks_by_class.csv`：逐样品逐粒级储量（含 ESM 倍率）
 - `result.json`：元数据、逐样品指标与全部区间
 - `report.md`：中文报告（公式、单位表、结果、局限，可改名作实验室内部说明）
@@ -97,7 +97,7 @@ python -m pytest -q
 python -m ruff check .
 ```
 
-57 个测试覆盖手算 MWD/GMD/R>0.25、ESM 倍率、CPI/CMI 定义与参照=100、bootstrap 复现、缺粒级/负质量/容重越界/空参照等错误输入、输出列齐全与 CLI 退出码。
+60 个测试覆盖手算 MWD/GMD/R>0.25、ESM 倍率、CPI/CMI 定义与参照=100、bootstrap 复现、缺粒级/负质量/容重越界/空参照等错误输入、输出列齐全与 CLI 退出码。
 
 ## 引用
 

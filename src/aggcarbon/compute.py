@@ -29,6 +29,7 @@ METRICS: tuple[str, ...] = (
     "poc_stock",
     "maoc_stock",
     "poc_maoc_ratio",
+    "li",
 )
 
 METRIC_UNITS: dict[str, str] = {
@@ -39,6 +40,7 @@ METRIC_UNITS: dict[str, str] = {
     "poc_stock": "Mg/ha",
     "maoc_stock": "Mg/ha",
     "poc_maoc_ratio": "g/g",
+    "li": "ratio",
 }
 
 SUMMARY_COLUMNS: tuple[str, ...] = (
@@ -69,6 +71,10 @@ SUMMARY_COLUMNS: tuple[str, ...] = (
     "MAOC_stock_Mg_ha_sd",
     "MAOC_stock_Mg_ha_ci_low",
     "MAOC_stock_Mg_ha_ci_high",
+    "LI_mean",
+    "LI_sd",
+    "LI_ci_low",
+    "LI_ci_high",
     "POC_MAOC_ratio_mean",
     "POC_MAOC_ratio_sd",
     "POC_MAOC_ratio_ci_low",
@@ -91,6 +97,7 @@ _CSV_METRIC_NAMES: dict[str, str] = {
     "poc_stock": "POC_stock_Mg_ha",
     "maoc_stock": "MAOC_stock_Mg_ha",
     "poc_maoc_ratio": "POC_MAOC_ratio",
+    "li": "LI",
 }
 
 
@@ -109,6 +116,7 @@ class SampleMetrics:
     poc_stock: float
     maoc_stock: float
     poc_maoc_ratio: float
+    li: float
 
 
 @dataclass(frozen=True)
@@ -139,6 +147,15 @@ class TreatmentSummary:
             row[f"{prefix}_sd"] = stat.sd
             row[f"{prefix}_ci_low"] = stat.ci_low
             row[f"{prefix}_ci_high"] = stat.ci_high
+        li = self.stats["li"]
+        row.update(
+            {
+                "LI_mean": li.mean,
+                "LI_sd": li.sd,
+                "LI_ci_low": li.ci_low,
+                "LI_ci_high": li.ci_high,
+            }
+        )
         cpi = self.stats["cpi"]
         cmi = self.stats["cmi"]
         row.update(
@@ -244,6 +261,11 @@ def compute_sample(sample: Sample, reference_mass_mg_ha: float | None = None) ->
         if np.isfinite(poc_stock) and np.isfinite(maoc_stock) and maoc_stock > 0
         else float("nan")
     )
+    li = (
+        poc_stock / soc_stock
+        if np.isfinite(poc_stock) and np.isfinite(soc_stock) and soc_stock > 0
+        else float("nan")
+    )
 
     return SampleMetrics(
         sample_id=sample.sample_id,
@@ -259,6 +281,7 @@ def compute_sample(sample: Sample, reference_mass_mg_ha: float | None = None) ->
         poc_stock=poc_stock * esm_factor,
         maoc_stock=maoc_stock * esm_factor,
         poc_maoc_ratio=poc_maoc_ratio,
+        li=li,
     )
 
 
