@@ -368,7 +368,8 @@ def compute_dataset(
     ref_soc = point["soc_stock"][reference]
     for name in treatments:
         if name == reference:
-            cpi_draws[name] = np.full(bootstrap, 100.0)
+            # CPI is a plain ratio, so the reference is 1; CMI is indexed to 100.
+            cpi_draws[name] = np.full(bootstrap, 1.0)
             cmi_draws[name] = np.full(bootstrap, 100.0)
             continue
         if not np.isfinite(ref_poc) or ref_poc == 0:
@@ -397,7 +398,7 @@ def compute_dataset(
             stats[metric] = Stat(mean=mean, sd=sd, ci_low=low, ci_high=high)
 
         if name == reference:
-            stats["cpi"] = Stat(mean=100.0, sd=0.0, ci_low=100.0, ci_high=100.0)
+            stats["cpi"] = Stat(mean=1.0, sd=0.0, ci_low=1.0, ci_high=1.0)
             stats["cmi"] = Stat(mean=100.0, sd=0.0, ci_low=100.0, ci_high=100.0)
         else:
             cpi_mean = (

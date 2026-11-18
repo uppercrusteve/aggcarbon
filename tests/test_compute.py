@@ -94,13 +94,13 @@ def test_cpi_and_cmi_definition() -> None:
     assert summary["M"].stats["cmi"].mean == pytest.approx(225.0)
 
 
-def test_reference_cpi_and_cmi_are_100() -> None:
+def test_reference_cpi_is_one_and_cmi_is_100() -> None:
     result = compute_dataset(make_dataset(), reference="CK", bootstrap=200)
     reference = result.summaries[0]
     assert reference.treatment == "CK"
-    assert reference.stats["cpi"].mean == 100.0
+    assert reference.stats["cpi"].mean == 1.0
     assert reference.stats["cmi"].mean == 100.0
-    assert reference.stats["cpi"].ci_low == 100.0
+    assert reference.stats["cpi"].ci_low == 1.0
     assert reference.stats["cmi"].ci_high == 100.0
 
 
@@ -163,7 +163,7 @@ def test_missing_poc_gives_nan_cpi() -> None:
         )
     )
     result = compute_dataset(dataset, reference="CK", bootstrap=50)
-    assert result.summaries[0].stats["cpi"].mean == 100.0
+    assert result.summaries[0].stats["cpi"].mean == 1.0
     assert np.isnan(result.summaries[1].stats["cpi"].mean)
     assert np.isnan(result.summaries[1].stats["cmi"].mean)
 

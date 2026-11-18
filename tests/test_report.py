@@ -110,7 +110,7 @@ def test_summary_has_every_documented_column(tmp_path: Path) -> None:
     frame = pd.read_csv(output / "summary.csv")
     assert tuple(frame.columns) == SUMMARY_COLUMNS
     assert list(frame["treatment"]) == ["CK", "M"]
-    assert frame.loc[0, "CPI_mean"] == pytest.approx(100.0)
+    assert frame.loc[0, "CPI_mean"] == pytest.approx(1.0)
     assert frame.loc[0, "CMI_mean"] == pytest.approx(100.0)
 
 
@@ -120,7 +120,7 @@ def test_result_json_reference_and_ratio(tmp_path: Path) -> None:
     assert payload["reference_treatment"] == "CK"
     reference = payload["treatments"][0]
     treatment = payload["treatments"][1]
-    assert reference["metrics"]["cpi"]["mean"] == 100.0
+    assert reference["metrics"]["cpi"]["mean"] == 1.0
     assert treatment["metrics"]["cpi"]["mean"] == pytest.approx(1.5)
     assert treatment["metrics"]["cmi"]["mean"] == pytest.approx(225.0)
     assert payload["data_note"] == "合成演示数据（测试）"

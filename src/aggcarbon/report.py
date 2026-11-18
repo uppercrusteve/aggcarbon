@@ -240,7 +240,7 @@ def write_report(result: ComputeResult, path: str | Path, data_note: str, input_
 - CPI = POC_treat / POC_ref
 - CMI = CPI × (SOC_treat / SOC_ref) × 100
 
-参照处理的 CPI 与 CMI 固定为 100。{esm_text}
+参照处理的 CPI 固定为 1，CMI 固定为 100。{esm_text}
 
 | 符号 | 含义 | 单位 |
 |---|---|---|

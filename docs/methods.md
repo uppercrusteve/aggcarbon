@@ -70,7 +70,7 @@
 
    LI = POC_stock,sample / SOC_stock,sample
 
-   参照处理的 CPI 与 CMI 定义为 100。CPI 是无量纲比值；CMI 是以 100 为基准的指数。LI（lability index，活性指数）为该样品 POC 占 SOC 的比例（0–1），数值越高表示碳库越以易分解组分主导；它是样品内比值，不受 ESM 缩放影响，也不依赖参照处理。
+   参照处理的 CPI 定义为 1，CMI 定义为 100。CPI 是无量纲比值；CMI 是以 100 为基准的指数。LI（lability index，活性指数）为该样品 POC 占 SOC 的比例（0–1），数值越高表示碳库越以易分解组分主导；它是样品内比值，不受 ESM 缩放影响，也不依赖参照处理。
 
 9. 不确定区间
 
@@ -88,7 +88,7 @@
 - SOC_stock = 3000×1×10/1000 = **30 Mg/ha**
 - 若 M_ref = 2000 Mg/ha：factor = 0.6667，SOC_stock,ESM = **20 Mg/ha**
 
-另一组处理 POC = 3、SOC = 30 Mg/ha，参照 POC = 2、SOC = 20 Mg/ha：CPI = 1.5，CMI = 1.5×1.5×100 = **225**。
+另一组处理 POC = 3、SOC = 30 Mg/ha，参照 POC = 2、SOC = 20 Mg/ha：CPI = 1.5，CMI = 1.5×1.5×100 = **225**；参照处理自身 CPI = 1、CMI = 100。
 
 上述数值均作为 `tests/test_compute.py` 的独立夹具。
 

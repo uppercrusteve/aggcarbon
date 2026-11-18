@@ -134,11 +134,17 @@ def read_dataset(path: str | Path) -> Dataset:
         raise ValidationError([f"input file not found: {csv_path}"])
 
     try:
-        frame = pd.read_csv(csv_path, comment="#", dtype=str, keep_default_na=False)
+        frame = pd.read_csv(
+            csv_path, comment="#", dtype=str, keep_default_na=False, encoding="utf-8-sig"
+        )
     except pd.errors.EmptyDataError as exc:
         raise ValidationError(["input file is empty"]) from exc
     except pd.errors.ParserError as exc:
         raise ValidationError([f"could not parse CSV: {exc}"]) from exc
+    except UnicodeDecodeError as exc:
+        raise ValidationError(
+            ["input is not UTF-8; re-save the CSV as UTF-8 (Excel: 另存为 → CSV UTF-8)"]
+        ) from exc
 
     frame.columns = [str(column).strip() for column in frame.columns]
     missing = [column for column in REQUIRED_COLUMNS if column not in frame.columns]
