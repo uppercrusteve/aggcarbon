@@ -17,7 +17,7 @@
 
 需要 Python 3.10+。推荐虚拟环境。
 
-Windows PowerShell：
+Windows PowerShell:
 
 ```powershell
 py -3.12 -m venv .venv
@@ -26,7 +26,7 @@ python -m pip install -e .
 aggcarbon --help
 ```
 
-macOS / Linux：
+macOS / Linux:
 
 ```bash
 python3 -m venv .venv
